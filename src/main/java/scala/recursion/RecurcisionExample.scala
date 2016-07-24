@@ -24,10 +24,61 @@ object RecurcisionExample {
         System.exit(1)
       }
 
+    // write a function to sum values until user types quit
 
+    def sum():Int={
+      val n=readLine()
 
+      if(n!="QUIT"){
+        n.toInt+sum()
+      }
+      else {
+        0
+      }
+    }
 
-    
+    // some recurcive function
+
+    def inputandcount(base:Int):(Int,Int)={
+      val n=readLine()
+      if (n!="quit"){
+        val (s,c)=inputandcount(base)
+        (s*n.toInt,c+1)
+      }else
+        {
+          (base,0)
+        }
+    }
+
+   // exponential function
+    def ex(n:Int):Double={
+     if(n > 0) {
+       math.exp(n*ex(n))
+     }
+     else
+       {
+         0.0
+       }
+   }
+
+    //powers of two
+    def power(a:Int):Double={
+      math.pow(2,a)
+    }
+
+    //function is prime
+    def isprime(a:Int):Boolean={
+      if (a %2 != 0)
+        {
+          true
+        }
+      else
+        {
+          false
+        }
+    }
+
+    println(isprime(4))
 
   }
 
