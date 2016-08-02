@@ -6,6 +6,8 @@ package scala.recursion
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkContext, SparkConf}
+import scala.collection.mutable.Queue
+import org.apache.spark.rdd.RDD
 
 object RecurcisionExample {
 
@@ -16,6 +18,13 @@ object RecurcisionExample {
 
     val conf = new SparkConf().setMaster("local[*]").setAppName("YOUR_APP_NAME_USER").set("spark.hadoop.validateOutputSpecs", "false")
     val sc = new SparkContext(conf)
+
+    val rddQueue = new Queue[RDD[(Int,String,String)]]()
+
+    val test=sc.parallelize(List("1","kali","sri"))
+
+
+
 
     if (args.length < 2)
       {
